@@ -1,27 +1,31 @@
-// using System;
-// using System.ComponentModel.DataAnnotations;
-// using System.ComponentModel.DataAnnotations.Schema;
+using System;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
-// namespace YourNamespace.Models
-// {
-// public class Coupon
-// {
-//     [Key]
-//     public int Id { get; set; }
-//     public string Name { get; set; }
-//     public string Description { get; set; }
-//     public DateTime StartDate { get; set; }
-//     public DateTime EndDate { get; set; }
-//     public string DiscountType { get; set; } // Should use enum
-//     public bool IsLimited { get; set; }
-//     public int UsageLimit { get; set; }
-//     public int AmountUses { get; set; }
-//     public decimal MinPurchaseAmount { get; set; }
-//     public decimal MaxPurchaseAmount { get; set; }
-//     public string Status { get; set; } // Should use enum
+namespace coupons2.Models
+{
+public class Coupon
+{
 
-//     [ForeignKey("MarketingUser")]
-//     public int MarketingUserId { get; set; }
-//     public virtual MarketingUser MarketingUser { get; set; }
-// }
-// }
+    public int Id { get; set; }
+    public string Name { get; set; }
+    public string Description { get; set; }
+    public DateTime StartDate { get; set; }
+    public DateTime EndDate { get; set; }
+    public string DiscountType { get; set; } // Should use enum
+    public int IsLimited { get; set; }
+    public int UsageLimit { get; set; }
+    public int AmountUses { get; set; }
+    public decimal MinPurchaseAmount { get; set; }
+    public decimal MaxPurchaseAmount { get; set; }
+    public string Status { get; set; } // Should use enum
+
+    
+    public int MarketingUserId { get; set; }
+    // public  MarketingUser MarketingUser { get; set; }
+
+    public int CategoriesId { get; set; }
+    public ICollection <Categories>categories { get; set; }
+
+}
+}
